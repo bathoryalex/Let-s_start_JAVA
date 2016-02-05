@@ -1,5 +1,6 @@
 package java_xml_handler;
 
-public enum Gender {
+public enum Gender
+{
 	MALE, FEMALE
 }

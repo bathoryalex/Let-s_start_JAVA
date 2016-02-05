@@ -1,13 +1,15 @@
 package java_xml_handler;
 
-public class Person {
+public class Person
+{
 	private String firstName;
 	private String lastName;
-	private String gender;
+	private Gender gender;
 	private boolean hasOscar;
 	private boolean hasGoldenGlobe;
 
-	public Person(String firstName, String lastName, String gender, boolean hasOscar, boolean hasGoldenGlobe) {
+	public Person(String firstName, String lastName, Gender gender, boolean hasOscar, boolean hasGoldenGlobe)
+	{
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.gender = gender;
@@ -15,48 +17,71 @@ public class Person {
 		this.hasGoldenGlobe = hasGoldenGlobe;
 	}
 
-	public String getFirstName() {
+	public String getFirstName()
+	{
 		return firstName;
 	}
 
-	public void setFirstName(String firstName) {
+	public void setFirstName(String firstName)
+	{
 		this.firstName = firstName;
 	}
 
-	public String getLastName() {
+	public String getLastName()
+	{
 		return lastName;
 	}
 
-	public void setLastName(String lastName) {
+	public void setLastName(String lastName)
+	{
 		this.lastName = lastName;
 	}
 
-	public String getGender() {
+	public Gender getGender()
+	{
 		return gender;
 	}
 
-	public void setGender(String gender) {
+	public void setGender(Gender gender)
+	{
 		this.gender = gender;
 	}
 
-	public boolean isHasOscar() {
+	public boolean isHasOscar()
+	{
 		return hasOscar;
 	}
 
-	public void setHasOscar(boolean hasOscar) {
+	public void setHasOscar(boolean hasOscar)
+	{
 		this.hasOscar = hasOscar;
 	}
 
-	public boolean isHasGoldenGlobe() {
+	public boolean isHasGoldenGlobe()
+	{
 		return hasGoldenGlobe;
 	}
 
-	public void setHasGoldenGlobe(boolean hasGoldenGlobe) {
+	public void setHasGoldenGlobe(boolean hasGoldenGlobe)
+	{
 		this.hasGoldenGlobe = hasGoldenGlobe;
 	}
 
-	public String toXMLString() {
-		return "";
+	public String toString()
+	{
+		return firstName + " " + lastName;
 	}
 
+	
+	public String toXMLString()
+	{
+		return "<Person>"
+				+ "<FirstName>" + this.firstName +"</FirstName>"
+				+ "<LastName>" + this.lastName + "</LastName>"
+	            + "<Gender>" + this.gender + "</Gender>"
+	            + "<HasOscar>" + this.hasOscar + "</HasOscar>"
+	            + "<HasGoldenGlobe>" + this.hasGoldenGlobe + "</HasGoldenGlobe>"
+				+ "</Person>";
+
+		}
 }

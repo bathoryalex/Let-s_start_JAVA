@@ -1,63 +1,86 @@
 package java_xml_handler;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class Movie {
-	private String title;
-	private Genre genre;
-	private Long duration;
-	private Double rate;
-	private List<Person> cast;
+public class Movie
+{
+	String title;
+	Genre genre;
+	long duration;
+	double rate;
+	List<Person> cast;
 
-	public void movie(String title, Genre genre, long duration, double rate, List<Person> cast) {
+	public Movie(String title, Genre genre, long duration, double rate)
+	{
 		this.title = title;
 		this.genre = genre;
 		this.duration = duration;
 		this.rate = rate;
-		this.cast = cast;
+		this.cast = new ArrayList<Person>();
 	}
 
-	public String getTitle() {
+	public String getTitle()
+	{
 		return title;
 	}
 
-	public void setTitle(String title) {
+	public void setTitle(String title)
+	{
 		this.title = title;
 	}
 
-	public Genre getGenre() {
+	public Genre getGenre()
+	{
 		return genre;
 	}
 
-	public void setGenre(Genre genre) {
+	public void setGenre(Genre genre)
+	{
 		this.genre = genre;
 	}
 
-	public Long getDuration() {
+	public long getDuration()
+	{
 		return duration;
 	}
 
-	public void setDuration(Long duration) {
+	public void setDuration(long duration)
+	{
 		this.duration = duration;
 	}
 
-	public Double getRate() {
+	public double getRate()
+	{
 		return rate;
 	}
 
-	public void setRate(Double rate) {
+	public void setRate(double rate)
+	{
 		this.rate = rate;
 	}
 
-	public List<Person> getCast() {
+	public List<Person> getCast()
+	{
 		return cast;
 	}
 
-	public void setCast(List<Person> cast) {
+	public void setCast(List<Person> cast)
+	{
 		this.cast = cast;
 	}
 
-	public String toXMLString() {
-		return "";
+	public String toXMLString()
+	{
+		String result = "<Movie>" + "<Title>" + this.title + "</Title>" + "<Genre>" + this.genre + "</Genre>"
+				+ "<Duration>" + this.duration + "</Duration>" + "<Rate>" + this.rate + "</Rate>" + "<Cast>";
+		for (Person person : this.cast)
+		{
+			result += person.toXMLString();
+		}
+		result += "</Cast>" + "</Movie>";
+		return result;
+
 	}
+
 }

@@ -72,16 +72,28 @@ public class Person
 		return firstName + " " + lastName;
 	}
 
-	
 	public String toXMLString()
 	{
-		return "<Person>"
-				+ "<FirstName>" + this.firstName +"</FirstName>"
-				+ "<LastName>" + this.lastName + "</LastName>"
-	            + "<Gender>" + this.gender + "</Gender>"
-	            + "<HasOscar>" + this.hasOscar + "</HasOscar>"
-	            + "<HasGoldenGlobe>" + this.hasGoldenGlobe + "</HasGoldenGlobe>"
-				+ "</Person>";
+		StringBuffer stringBuffer = new StringBuffer();
+		stringBuffer.append("<Person>");
+		stringBuffer.append("<FirstName>");
+		stringBuffer.append(firstName);
+		stringBuffer.append("</FirstName>");
+		stringBuffer.append("<LastName>");
+		stringBuffer.append(lastName);
+		stringBuffer.append("</LastName>");
+		stringBuffer.append("<Gender>");
+		stringBuffer.append(gender);
+		stringBuffer.append("</Gender>");
+		stringBuffer.append("<HasOscar>");
+		stringBuffer.append(hasOscar);
+		stringBuffer.append("</HasOscar>");
+		stringBuffer.append("<HasGoldenGlobe>");
+		stringBuffer.append(hasGoldenGlobe);
+		stringBuffer.append("</HasGoldenGlobe>");
+		stringBuffer.append("</Person>");
 
-		}
+		return stringBuffer.toString();
+
+	}
 }
